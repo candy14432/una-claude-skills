@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Waving Hand Animation — Demo</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 48px 24px;
+    background: #f4f5f7;
+    font-family: "Noto Sans TC", system-ui, -apple-system, sans-serif;
+    color: #1e1e1e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+  h1 { font-size: 20px; margin: 0; }
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .card {
+    width: 220px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px 20px 22px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    text-align: center;
+  }
+  .card h2 { font-size: 14px; color: #676767; font-weight: 500; margin: 0 0 18px; }
+  .big { font-size: 44px; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 999px;
+    background: #fff0f0;
+    color: #c2292e;
+    font: 500 16px/1.4 inherit;
+    cursor: pointer;
+  }
+
+  /* ---- The reusable waving animation ---- */
+  .wave {
+    display: inline-block;
+    transform-origin: 55% 85%;
+    animation: hand-wave 3.2s ease-in-out infinite;
+    will-change: transform;
+  }
+  @keyframes hand-wave {
+    0%, 60%, 100% { transform: scale(1) rotate(0deg); }
+    8%            { transform: scale(1.3) rotate(0deg); }
+    18%           { transform: scale(1.3) rotate(-16deg); }
+    28%           { transform: scale(1.3) rotate(13deg); }
+    38%           { transform: scale(1.3) rotate(-9deg); }
+    46%           { transform: scale(1.3) rotate(6deg); }
+    53%           { transform: scale(1.12) rotate(0deg); }
+  }
+
+  /* Hover-only variant: idle at rest, wave (faster) on hover/focus */
+  .wave--hover { display: inline-block; transform-origin: 55% 85%; }
+  .btn:hover .wave--hover,
+  .btn:focus-visible .wave--hover { animation: hand-wave 1.1s ease-in-out; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wave, .wave--hover { animation: none !important; }
+  }
+</style>
+</head>
+<body>
+  <h1>揮手動畫 · Waving Hand</h1>
+  <div class="grid">
+    <div class="card">
+      <h2>Emoji（idle loop）</h2>
+      <div class="big"><span class="wave">👋</span></div>
+    </div>
+
+    <div class="card">
+      <h2>Inline SVG（idle loop）</h2>
+      <svg class="wave" width="44" height="44" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16.953 3.99217C16.7504 3.78898 16.479 3.66961 16.1923 3.65767C15.8867 3.66457 15.5959 3.7911 15.3827 4.01021C15.1694 4.22932 15.0503 4.52323 15.0516 4.82883V9.24786C15.0535 9.41285 14.9333 9.55397 14.7702 9.57864C14.6813 9.58713 14.593 9.55795 14.5269 9.49774C14.4611 9.43752 14.4237 9.35238 14.424 9.26298V2.29973C14.4219 1.99998 14.3014 1.71297 14.0895 1.501C13.8887 1.29595 13.6157 1.17738 13.3287 1.17021C13.0231 1.17711 12.7324 1.30391 12.5191 1.52275C12.3059 1.74186 12.1868 2.03577 12.1881 2.34165V8.42631C12.1899 8.59104 12.0698 8.73243 11.9066 8.75683C11.8183 8.76559 11.7308 8.73667 11.6647 8.67725C11.5989 8.61783 11.5613 8.53374 11.5605 8.44514V1.64215C11.5607 1.3302 11.4334 1.03151 11.2077 0.815852C10.9822 0.600455 10.6782 0.486655 10.3665 0.501249C10.0604 0.50735 9.76912 0.633615 9.55561 0.852725C9.34207 1.0721 9.2235 1.36654 9.22562 1.67237V8.43767C9.22748 8.60267 9.10731 8.74405 8.94418 8.76846C8.85584 8.77721 8.76831 8.7483 8.70252 8.68888C8.63673 8.62946 8.5988 8.54537 8.598 8.45677V3.0414C8.59827 2.74351 8.48155 2.45729 8.27332 2.24403C8.06509 2.03102 7.78179 1.90768 7.4839 1.90078C7.17778 1.90661 6.88652 2.03288 6.67301 2.25225C6.45948 2.47136 6.3409 2.76581 6.34302 3.0719V11.5787L5.2021 10.0385C4.98034 9.74623 4.65168 9.55391 4.28827 9.50324C3.92486 9.45258 3.55616 9.54807 3.26273 9.7685C2.98393 9.98125 2.79586 10.2916 2.73671 10.6372C2.67755 10.9832 2.7513 11.3383 2.94335 11.6318L5.01956 14.9518C5.20365 15.242 5.3652 15.5458 5.50261 15.8606L5.54054 15.9482C7.75392 20.9604 14.9906 20.58 16.6638 15.3625C17.075 14.0831 17.284 12.7475 17.2837 11.4037V4.79061C17.2824 4.49139 17.1636 4.20464 16.953 3.99188L16.953 3.99217Z" fill="url(#g)"/>
+        <defs><linearGradient id="g" x1="10" y1="0.5" x2="10" y2="19.5" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#ED4B50"/><stop offset="1" stop-color="#C2292E"/>
+        </linearGradient></defs>
+      </svg>
+    </div>
+
+    <div class="card">
+      <h2>Hover the button</h2>
+      <button class="btn"><span class="wave--hover">👋</span> 提問</button>
+    </div>
+  </div>
+</body>
+</html>
