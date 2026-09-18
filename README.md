@@ -34,6 +34,11 @@ Claude Code 的 UI / UX 設計方法論 skill 收藏，涵蓋雙鑽流程、設�
 | `wireframing` | 低至中保真線框圖 |
 | `prototyping` | 可互動原型與互動流程說明 |
 
+### Figma 產出
+| Skill | 用途 |
+| --- | --- |
+| `figma-flow-builder` | 把 HTML 原型匯回 Figma：產生自寫 Figma plugin，一鍵建出變數、元件（variants／boolean／text 屬性）、UI Flow 與規格板；含本機 mock 驗證與 Plugin API 坑清單 |
+
 ### 實作片段
 | Skill | 用途 |
 | --- | --- |
