@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Highlight Distill"
+  short_description: "Turn long videos into themed highlight cuts"
+  default_prompt: "Use $video-highlight-distill to transcribe this long video, choose highlight ranges around the requested theme, validate the selected timestamps, and render a shorter highlight edit."

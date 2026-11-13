@@ -45,6 +45,11 @@ Claude Code 的 UI / UX 設計方法論 skill 收藏，涵蓋雙鑽流程、設�
 | `loading-screen` | 載入 / splash / 進站畫面的設計與實作 |
 | `waving-hand-animation` | 揮手動畫 |
 
+### 影片處理
+| Skill | 用途 |
+| --- | --- |
+| `video-highlight-distill` | 把長影片濃縮成精華剪輯：mlx-whisper 轉錄、依主題挑選片段、驗證時間戳，再用 ffmpeg 剪接（僅 macOS／Apple Silicon） |
+
 ## 安裝
 
 全部安裝到全域（所有專案可用）：

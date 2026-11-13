@@ -11,6 +11,12 @@ accessibility-design、define、design-system、empathize、ideate、
 information-architecture、persona-creation、prototype、prototyping、
 test、ui-visual-design、usability-testing、user-interview、wireframing
 
+## 第三方（上游未標示授權，author: Troyanovsky）
+
+`video-highlight-distill` 來自
+[github.com/Troyanovsky/video-highlight-distill](https://github.com/Troyanovsky/video-highlight-distill)，
+內容未經修改。上游 repo 未附 LICENSE，授權狀態待確認。
+
 ## 未標示授權
 
 以下 skill 的 frontmatter 未標示 license 或 author，出處待確認：
